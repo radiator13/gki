@@ -13,7 +13,7 @@
 #define PR_PAC_ENABLED_KEYS_MASK                                               \
 	(PR_PAC_APIAKEY | PR_PAC_APIBKEY | PR_PAC_APDAKEY | PR_PAC_APDBKEY)
 
-#ifdef CONFIG_ARM64_PTR_AUTH
+
 /*
  * Each key is a 128-bit quantity which is split across a pair of 64-bit
  * registers (Lo and Hi).
@@ -37,6 +37,8 @@ struct ptrauth_keys_user {
 struct ptrauth_keys_kernel {
 	struct ptrauth_key apia;
 };
+
+#ifdef CONFIG_ARM64_PTR_AUTH
 
 #define __ptrauth_key_install_nosync(k, v)			\
 do {								\
