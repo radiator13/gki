@@ -212,6 +212,17 @@ config ARM64
 	select THREAD_INFO_IN_TASK
 	select ARCH_SUPPORTS_SPECULATIVE_PAGE_FAULT
 	select HAVE_ARCH_USERFAULTFD_MINOR if USERFAULTFD
+	select PM_GENERIC_DOMAINS if PM
+    select ARCH_HAS_RESET_CONTROLLER
+    select RESET_CONTROLLER
+    select GENERIC_IRQ_CHIP
+    select MTK_TIMER
+    select PINCTRL
+    select GPIOLIB
+    select FONT_SUPPORT
+    select MFD_CORE
+    select ARM_ARCH_TIMER_OOL_WORKAROUND
+    select PREEMPT_NOTIFIERS
 	help
 	  ARM 64-bit (AArch64) Linux support.
 
