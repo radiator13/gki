@@ -5,6 +5,7 @@ set -euxo pipefail
 #git config --global --add safe.directory 
 
 which clang 
+clang -v && ld.lld -v
 
 sed -i 's/-dirty//g' scripts/setlocalversion
 
