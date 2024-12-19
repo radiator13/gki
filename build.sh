@@ -38,7 +38,7 @@ export GZIP=./build-tools/path/linux-x86/gzip
 export LZ4=./build-tools/path/linux-x86/lz4
 export MKBOOTIMG=./mkbootimg/mkbootimg.py
 export UNPACK_BOOTIMG=./mkbootimg/unpack_bootimg.py
-GKI_URL=https://dl.google.com/android/gki/gki-certified-boot-android12-5.10-2024-05_r1.zip
+GKI_URL=https://dl.google.com/android/gki/gki-certified-boot-android12-5.10-2024-11_r3.zip
 status=$(curl -sL -w "%{http_code}" "$GKI_URL" -o /dev/null)
 if [ "$status" = "200" ]; then
  curl -Lo gki-kernel.zip "$GKI_URL"
