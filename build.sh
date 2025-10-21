@@ -13,6 +13,9 @@ sed -i 's/-dirty//g' scripts/setlocalversion
 export KMI_GENERATION=9
 export BRANCH='android12-5.10' || exit 1
 
+
+git submodule update --init --recursive
+
 scripts/setlocalversion --save-scmversion . $BRANCH $KMI_GENERATION || exit 1 
 make ARCH=arm64 V=0 LLVM=1 LLVM_IAS=1 O=out gki_defconfig CROSS_COMPILE=aarch64-linux-gnu-
 cat out/.config
