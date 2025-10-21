@@ -1,0 +1,30 @@
+name: Build & Check
+
+on:
+  push:
+    branches:
+      - android12-5.10
+  pull_request:
+    branches:
+      - android12-5.10
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    container: radiator13/13:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 1
+      - name: Build
+        run: git config --global --add safe.directory /__w/gki/gki && bash build.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: boot.img
+          path: |
+              boot.img
+              out/*.ll
+          compression-level: 9
