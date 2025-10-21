@@ -22,10 +22,10 @@ make ARCH=arm64 V=0 LLVM=1 LLVM_IAS=1 O=out gki_defconfig CROSS_COMPILE=aarch64-
 cat out/.config
 make -j8 ARCH=arm64 V=0 LLVM=1 LLVM_IAS=1 O=out CROSS_COMPILE=aarch64-linux-gnu-
 
-cp out/Module.symvers kmi/module.symvers
+cp out/Module.symvers kmi/Module.symvers
 
 cd kmi
-python3 kmi.py
+python3 abi.py
 cd ..
 
 AOSP_MIRROR=https://android.googlesource.com
