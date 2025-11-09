@@ -20,11 +20,17 @@ jobs:
           fetch-depth: 1
       - name: Build
         run: git config --global --add safe.directory /__w/gki/gki && bash build.sh
-      - name: Upload artifact
-        uses: actions/upload-artifact@main
+        
+      - name: Upload boot image artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: boot.img
-          path: |
-              boot.img
-              out/*.ll
+         name: boot-img
+         path: boot.img
+         compression-level: 9
+
+      - name: Upload kernel artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernel-artifacts
+          path: out/arch/arm64/boot/Image.gz
           compression-level: 9
