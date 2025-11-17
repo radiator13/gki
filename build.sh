@@ -54,6 +54,10 @@ JOBS=$(nproc)
 log "Running make with ${JOBS} jobs"
 make -j"${JOBS}" ARCH=arm64 V=0 LLVM=1 LLVM_IAS=1 O=out CROSS_COMPILE=aarch64-linux-gnu- || error "Kernel build failed"
 
+ls -alh out/arch/arm64/boot
+objdump -h out/arch/arm64/boot/Image
+readelf -S out/arch/arm64/boot/Image
+
 cp out/Module.symvers kmi/Module.symvers || error "Copying Module.symvers failed"
 
 pushd kmi >/dev/null
